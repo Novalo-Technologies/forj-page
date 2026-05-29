@@ -11,9 +11,9 @@ permissions:
   contents: read
 
 env:
-  # Set these as GitHub Repository Variables (Settings -> Secrets and variables -> Actions -> Variables)
-  S3_BUCKET_NAME: ${{ vars.S3_BUCKET_NAME }}
-  AWS_ROLE_ARN: ${{ vars.AWS_ROLE_ARN }}
+  # Supports GitHub Variables or Secrets (repo/org/environment scoped).
+  S3_BUCKET_NAME: ${{ vars.S3_BUCKET_NAME || secrets.S3_BUCKET_NAME }}
+  AWS_ROLE_ARN: ${{ vars.AWS_ROLE_ARN || secrets.AWS_ROLE_ARN }}
 
 jobs:
   deploy:
@@ -25,8 +25,8 @@ jobs:
 
       - name: Validate required variables
         run: |
-          test -n "$S3_BUCKET_NAME" || (echo "Missing repo variable: S3_BUCKET_NAME" && exit 1)
-          test -n "$AWS_ROLE_ARN" || (echo "Missing repo variable: AWS_ROLE_ARN" && exit 1)
+          test -n "$S3_BUCKET_NAME" || (echo "Missing S3_BUCKET_NAME (set as GitHub Variable or Secret)" && exit 1)
+          test -n "$AWS_ROLE_ARN" || (echo "Missing AWS_ROLE_ARN (set as GitHub Variable or Secret)" && exit 1)
 
       - name: Configure AWS credentials (OIDC)
         uses: aws-actions/configure-aws-credentials@v4
