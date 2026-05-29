@@ -1,0 +1,42 @@
+name: Deploy Static Site to S3
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  # Set these as GitHub Repository Variables (Settings -> Secrets and variables -> Actions -> Variables)
+  S3_BUCKET_NAME: ${{ vars.S3_BUCKET_NAME }}
+  AWS_ROLE_ARN: ${{ vars.AWS_ROLE_ARN }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate required variables
+        run: |
+          test -n "$S3_BUCKET_NAME" || (echo "Missing repo variable: S3_BUCKET_NAME" && exit 1)
+          test -n "$AWS_ROLE_ARN" || (echo "Missing repo variable: AWS_ROLE_ARN" && exit 1)
+
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ env.AWS_ROLE_ARN }}
+          aws-region: us-east-1
+
+      - name: Deploy to S3
+        run: |
+          aws s3 sync . "s3://${S3_BUCKET_NAME}" \
+            --delete \
+            --exclude ".git/*" \
+            --exclude ".github/*"
