@@ -1,0 +1,8 @@
+# forj.se
+User-agent: *
+Allow: /
+
+# Forms-handling endpoint should not be indexed
+Disallow: /thanks.html
+
+Sitemap: https://forj.se/sitemap.xml

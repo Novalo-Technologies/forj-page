@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Primary meta -->
+<title>Forj — Commercial readiness and qualified pipeline for AWS partners</title>
+<meta name="description" content="A Nordic practice that builds qualified AWS pipeline for partners. Commercial readiness work, then pipeline that proves it landed.">
+<meta name="author" content="Jacob Ahmid">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://forj.se/">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<!-- Open Graph (LinkedIn, Slack, Facebook) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://forj.se/">
+<meta property="og:title" content="Forj — Commercial readiness and qualified pipeline for AWS partners">
+<meta property="og:description" content="A Nordic practice for AWS partners: startups, scale-ups, and AWS divisions inside larger consultancies.">
+<meta property="og:image" content="https://forj.se/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Forj">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Forj — Commercial readiness and qualified pipeline for AWS partners">
+<meta name="twitter:description" content="A Nordic practice for AWS partners: startups, scale-ups, and AWS divisions inside larger consultancies.">
+<meta name="twitter:image" content="https://forj.se/og-image.png">
+
+<!-- Structured data: Organization schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Forj",
+  "url": "https://forj.se",
+  "logo": "https://forj.se/og-image.png",
+  "description": "A Nordic practice that builds qualified AWS pipeline for partners. Commercial readiness work, then pipeline that proves it landed.",
+  "founder": {
+    "@type": "Person",
+    "name": "Jacob Ahmid",
+    "sameAs": "https://www.linkedin.com/in/jacob-ahmid"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Gothenburg",
+    "addressCountry": "SE"
+  },
+  "areaServed": {
+    "@type": "Place",
+    "name": "Nordics"
+  },
+  "email": "jacob@forj.se",
+  "sameAs": [
+    "https://www.linkedin.com/company/forjcompany/"
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700&family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=Outfit:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#F3F0EA;--ink:#1A1916;--ink-mid:#6A6760;--ink-dim:#A4A09B;
+    --rule:#D8D4CC;--accent:#B83D0C;--cream:#FDFAF5;
+    --dark:#141310;--dark-rule:#3F3D3A;--dark-text:#C2BEB5;--dark-muted:#8C8880;--dark-label:#6F6B63;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+
+  /* NAV */
+  nav{display:flex;justify-content:space-between;align-items:center;padding:26px 64px;border-bottom:1px solid var(--rule);background:var(--bg);position:sticky;top:0;z-index:100;}
+  .nav-brand{font-family:'Bricolage Grotesque',sans-serif;font-size:20px;letter-spacing:.18em;text-transform:uppercase;font-weight:400;color:var(--ink);text-decoration:none;}
+  .nav-links{display:flex;gap:36px;list-style:none;}
+  .nav-links a{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mid);text-decoration:none;transition:color .2s;}
+  .nav-links a:hover{color:var(--ink);}
+
+  /* HERO */
+  .hero{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;padding:112px 64px 96px;max-width:1140px;margin:0 auto;}
+  .hero-left h1{font-family:'DM Serif Display',serif;font-size:clamp(42px,5.2vw,70px);line-height:1.07;letter-spacing:-.025em;}
+  .hero-left h1 em{font-style:italic;color:var(--accent);}
+  .hero-right p{font-size:18px;color:var(--ink-mid);font-weight:300;line-height:1.75;margin-bottom:28px;}
+  .hero-right p strong{color:var(--ink);font-weight:500;}
+  .hero-outcome{border-left:2px solid var(--accent);padding:4px 0 4px 20px;margin-bottom:16px;}
+  .hero-outcome p{font-size:14px;margin-bottom:6px;color:var(--ink);font-weight:400;line-height:1.6;}
+  .hero-outcome p:last-child{margin-bottom:0;}
+  .hero-note{font-size:12px;color:var(--ink-dim);margin-bottom:36px;font-style:italic;line-height:1.6;}
+  .btn-primary{display:inline-block;padding:14px 30px;background:var(--ink);color:var(--cream);text-decoration:none;font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:500;transition:background .2s;margin-right:20px;}
+  .btn-primary:hover{background:var(--accent);}
+  .btn-ghost{display:inline-block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mid);text-decoration:none;border-bottom:1px solid var(--rule);padding-bottom:2px;transition:color .2s,border-color .2s;}
+  .btn-ghost:hover{color:var(--ink);border-color:var(--ink);}
+
+  /* DIFF STRIP */
+  .diff-strip{background:var(--ink);padding:26px 64px;}
+  .diff-inner{max-width:1140px;margin:0 auto;display:flex;align-items:center;gap:20px;}
+  .diff-label{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--dark-label);white-space:nowrap;}
+  .diff-div{width:1px;height:16px;background:#2E2C29;}
+  .diff-strip p{font-size:14px;color:var(--dark-text);font-weight:300;}
+  .diff-strip p em{color:var(--cream);font-style:normal;font-weight:400;}
+
+  .hr{border:none;border-top:1px solid var(--rule);margin:0 64px;}
+
+  /* COMMERCIAL SIGNAL STRIP */
+  .signal-strip{background:var(--dark);border-top:1px solid var(--dark-rule);border-bottom:1px solid var(--dark-rule);}
+  .signal-inner{max-width:1140px;margin:0 auto;padding:36px 64px;display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
+  .signal-eyebrow{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--dark-label);white-space:nowrap;}
+  .signal-line{font-family:'DM Serif Display',serif;font-size:clamp(22px,2.6vw,30px);color:var(--cream);line-height:1.2;letter-spacing:-.015em;flex:1;min-width:0;}
+  .signal-line strong{font-weight:400;color:var(--accent);}
+  .signal-suffix{font-size:12px;color:var(--dark-text);font-weight:300;letter-spacing:.02em;white-space:nowrap;}
+  @media(max-width:780px){
+    .signal-inner{flex-direction:column;align-items:flex-start;gap:14px;padding:32px 24px;}
+    .signal-suffix{white-space:normal;line-height:1.6;}
+  }
+
+  /* POSITIONING */
+  .positioning{display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start;padding:80px 64px;max-width:1140px;margin:0 auto;}
+  .section-label{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:20px;}
+  .positioning h2{font-family:'DM Serif Display',serif;font-size:28px;line-height:1.25;font-weight:400;}
+  .pos-right p{font-size:17px;color:var(--ink-mid);font-weight:300;line-height:1.8;margin-bottom:28px;}
+  .focus-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;list-style:none;margin-bottom:28px;}
+  .focus-grid li{font-size:13px;color:var(--ink);font-weight:400;padding-left:14px;position:relative;line-height:1.5;}
+  .focus-grid li::before{content:'/';position:absolute;left:0;color:var(--accent);}
+  .pos-tagline{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-dim);padding-top:20px;border-top:1px solid var(--rule);}
+
+  /* THESIS */
+  .thesis{padding:96px 64px;max-width:1140px;margin:0 auto;}
+  .thesis-kicker{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:28px;}
+  .thesis h2{font-family:'DM Serif Display',serif;font-size:clamp(34px,4vw,54px);line-height:1.1;letter-spacing:-.02em;max-width:720px;margin-bottom:44px;}
+  .thesis-cols{display:grid;grid-template-columns:1fr 1fr;gap:60px;max-width:920px;}
+  .thesis-cols p{font-size:16px;color:var(--ink-mid);font-weight:300;line-height:1.85;}
+  .thesis-cols p strong{color:var(--ink);font-weight:500;}
+  .thesis-punch{margin-top:56px;padding-top:40px;border-top:1px solid var(--rule);font-family:'DM Serif Display',serif;font-size:24px;font-style:italic;color:var(--ink);}
+
+  /* WHERE IT GOES WRONG */
+  .deal-death{background:var(--dark);}
+  .deal-death-inner{max-width:1140px;margin:0 auto;padding:96px 64px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+  .deal-death-left .section-label{color:var(--dark-label);}
+  .deal-death-left h2{font-family:'DM Serif Display',serif;font-size:clamp(30px,3.2vw,44px);line-height:1.1;letter-spacing:-.02em;color:var(--cream);margin-top:24px;}
+  .deal-death-left h2 em{font-style:italic;color:var(--dark-muted);}
+  .deal-death-left p{margin-top:24px;font-size:15px;color:var(--dark-text);font-weight:300;line-height:1.8;}
+  .death-list{list-style:none;}
+  .death-coda{margin-top:48px;padding-top:32px;border-top:1px solid var(--dark-rule);font-family:'DM Serif Display',serif;font-style:italic;font-size:18px;color:var(--cream);line-height:1.55;letter-spacing:-.005em;max-width:680px;}
+  .death-item{padding:24px 0;border-bottom:1px solid var(--dark-rule);display:grid;grid-template-columns:28px 1fr;gap:16px;align-items:start;}
+  .death-item:first-child{border-top:1px solid var(--dark-rule);}
+  .death-num{font-size:11px;letter-spacing:.08em;color:var(--dark-label);font-weight:400;padding-top:2px;}
+  .death-item-content strong{display:block;font-size:14px;color:var(--cream);font-weight:500;margin-bottom:5px;line-height:1.4;}
+  .death-item-content p{font-size:13px;color:var(--dark-text);font-weight:300;line-height:1.7;}
+
+  /* WHAT I DO */
+  .what-i-do{padding:96px 64px;max-width:1140px;margin:0 auto;}
+  .wid-header{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-bottom:56px;align-items:end;}
+  .wid-header h2{font-family:'DM Serif Display',serif;font-size:clamp(30px,3.5vw,46px);line-height:1.1;letter-spacing:-.02em;}
+  .wid-header p{font-size:16px;color:var(--ink-mid);font-weight:300;line-height:1.8;}
+  .wid-header p strong{color:var(--ink);font-weight:500;}
+  .cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);}
+  .cap-cell{background:var(--bg);padding:40px 36px;}
+  .cap-num{font-size:10px;letter-spacing:.12em;color:var(--ink-dim);margin-bottom:20px;}
+  .cap-cell h3{font-family:'DM Serif Display',serif;font-size:22px;margin-bottom:14px;font-weight:400;}
+  .cap-cell p{font-size:14px;color:var(--ink-mid);line-height:1.8;font-weight:300;}
+  .cap-outcome{margin-top:20px;padding-top:16px;border-top:1px solid var(--rule);font-size:13px;color:var(--ink);font-weight:400;line-height:1.6;}
+  .cap-outcome::before{content:'→ ';color:var(--accent);}
+  .cap-aws-note{margin-top:10px;font-size:11px;color:var(--ink-dim);font-style:italic;line-height:1.5;}
+  .not-activity{margin-top:40px;font-size:15px;color:var(--ink-mid);font-style:italic;}
+
+  /* AWS */
+  .aws-section{background:var(--dark);}
+  .aws-inner{max-width:1140px;margin:0 auto;padding:96px 64px;display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:start;}
+  .aws-left .section-label{color:var(--dark-label);}
+  .aws-left h2{font-family:'DM Serif Display',serif;font-size:clamp(30px,3.5vw,46px);line-height:1.1;letter-spacing:-.02em;color:var(--cream);margin-top:24px;}
+  .aws-left h2 em{font-style:italic;color:var(--dark-muted);}
+  .aws-right p{font-size:15px;color:var(--dark-text);font-weight:300;line-height:1.85;margin-bottom:20px;}
+  .aws-right p strong{color:var(--cream);font-weight:400;}
+  .aws-chain{list-style:none;margin:28px 0;border-top:1px solid var(--dark-rule);border-bottom:1px solid var(--dark-rule);padding:20px 0;}
+  .aws-chain li{display:grid;grid-template-columns:80px 1fr;gap:12px;padding:9px 0;font-size:13px;}
+  .chain-role{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--dark-muted);font-weight:500;padding-top:2px;}
+  .chain-desc{color:var(--dark-text);font-weight:300;line-height:1.55;}
+  .chain-desc em{color:var(--cream);font-style:normal;font-weight:400;}
+  .aws-power-block{margin-top:48px;}
+  .aws-power-rule{display:block;width:48px;height:2px;background:var(--accent);margin-bottom:28px;}
+  .aws-power-truth{font-family:'DM Serif Display',serif;font-size:22px;line-height:1.4;letter-spacing:-.01em;color:var(--cream);font-weight:400;margin-bottom:16px;max-width:600px;}
+  .aws-power-kicker{font-family:'DM Serif Display',serif;font-style:italic;font-size:18px;line-height:1.5;color:var(--accent);font-weight:400;letter-spacing:-.005em;}
+
+  /* HUMAN MOTION SECTION */
+  .human-motion{padding:96px 64px;max-width:880px;margin:0 auto;text-align:center;}
+  .human-motion-kicker{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:24px;}
+  .human-motion h2{font-family:'DM Serif Display',serif;font-size:clamp(36px,4.5vw,56px);line-height:1.08;letter-spacing:-.025em;margin-bottom:36px;}
+  .human-motion h2 em{font-style:italic;color:var(--accent);}
+  .human-motion > p{font-size:17px;color:var(--ink-mid);font-weight:300;line-height:1.85;max-width:680px;margin:0 auto;}
+  .aws-extension{margin-top:32px;padding-top:24px;border-top:1px solid var(--dark-rule);font-size:13px;color:var(--dark-text);font-weight:300;line-height:1.8;}
+  .aws-extension::before{content:'+ ';color:var(--accent);font-weight:500;}
+  .aws-mutual{margin-top:56px;padding-top:36px;border-top:1px solid var(--dark-rule);font-family:'DM Serif Display',serif;font-style:italic;font-size:17px;color:var(--dark-text);font-weight:400;line-height:1.7;letter-spacing:-.005em;max-width:560px;}
+  
+  /* TESTIMONIAL */
+  .testimonial{background:var(--cream);padding:120px 64px;}
+  .testimonial-inner{max-width:820px;margin:0 auto;text-align:left;}
+  .testimonial-rule{display:block;width:48px;height:2px;background:var(--accent);margin-bottom:32px;}
+  .testimonial-label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:40px;font-weight:500;}
+  .testimonial-quote{font-family:'DM Serif Display',serif;font-style:italic;font-size:clamp(22px,2.4vw,30px);line-height:1.45;letter-spacing:-.01em;color:var(--ink);font-weight:400;margin:0 0 40px 0;}
+  .testimonial-attribution{display:flex;flex-direction:column;gap:4px;}
+  .testimonial-name{font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;color:var(--ink);letter-spacing:.01em;}
+  .testimonial-role{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:300;color:var(--ink-mid);letter-spacing:.01em;}
+  @media(max-width:680px){
+    .testimonial{padding:80px 24px;}
+  }
+
+  /* WHY ME */
+  .why-me{padding:96px 64px;max-width:760px;margin:0 auto;}
+  .why-me-left .section-label{margin-bottom:20px;}
+  .why-me-left h2{font-family:'DM Serif Display',serif;font-size:clamp(30px,3.5vw,46px);line-height:1.1;letter-spacing:-.02em;margin-bottom:28px;}
+  .why-me-left p{font-size:16px;color:var(--ink-mid);font-weight:300;line-height:1.8;margin-bottom:18px;}
+  .why-me-left p strong{color:var(--ink);font-weight:500;}
+  .jacob-linkedin{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mid);text-decoration:none;border-bottom:1px solid var(--rule);padding-bottom:2px;margin-top:8px;transition:color .2s,border-color .2s;}
+  .jacob-linkedin:hover{color:var(--ink);border-color:var(--ink);}
+  .fact-list{list-style:none;border-top:1px solid var(--rule);}
+  .fact-list li{padding:18px 0 18px 20px;border-bottom:1px solid var(--rule);font-size:14px;color:var(--ink);font-weight:400;line-height:1.6;position:relative;}
+  .fact-list li::before{content:'';position:absolute;left:0;top:27px;width:6px;height:1px;background:var(--accent);}
+  .fact-list li span{display:block;font-size:12px;color:var(--ink-dim);font-weight:300;margin-top:3px;}
+
+  /* GUARANTEE */
+  .guarantee{background:var(--cream);border-top:1px solid var(--rule);}
+  .guarantee-inner{max-width:1140px;margin:0 auto;padding:80px 64px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+  .guarantee-left h2{font-family:'DM Serif Display',serif;font-size:clamp(28px,3vw,42px);line-height:1.1;letter-spacing:-.02em;margin-bottom:16px;}
+  .guarantee-left p{font-size:15px;color:var(--ink-mid);font-weight:300;line-height:1.8;}
+  .qualified-def{margin-top:20px;padding:16px 20px;border:1px solid var(--rule);font-size:13px;color:var(--ink);line-height:1.7;font-weight:400;}
+  .qualified-def strong{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:12px;font-weight:500;}
+  .qualified-layer{display:block;font-size:13px;color:var(--ink);line-height:1.7;padding:10px 0;border-top:1px solid var(--rule);}
+  .qualified-layer:first-of-type{border-top:none;padding-top:0;}
+  .guarantee-right{border-left:2px solid var(--accent);padding-left:36px;}
+  .guarantee-right p{font-size:16px;color:var(--ink);font-weight:300;line-height:1.85;margin-bottom:16px;}
+  .guarantee-right p strong{font-weight:500;}
+  .guarantee-right p:last-child{margin-bottom:0;color:var(--ink-mid);font-size:15px;}
+
+  /* ENGAGEMENT */
+  .engagement{padding:96px 64px;max-width:1140px;margin:0 auto;}
+  .eng-header{margin-bottom:52px;}
+  .eng-header h2{font-family:'DM Serif Display',serif;font-size:clamp(30px,3.5vw,46px);line-height:1.1;letter-spacing:-.02em;margin-bottom:16px;}
+  .eng-header p{font-size:16px;color:var(--ink-mid);font-weight:300;max-width:600px;line-height:1.75;}
+  .eng-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--rule);border:1px solid var(--rule);margin-bottom:20px;}
+  .eng-phase{background:var(--cream);padding:48px 44px;}
+  .phase-tag{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:24px;}
+  .eng-phase h3{font-family:'DM Serif Display',serif;font-size:26px;margin-bottom:14px;font-weight:400;}
+  .eng-phase p{font-size:14px;color:var(--ink-mid);font-weight:300;line-height:1.8;margin-bottom:24px;}
+  .phase-items{list-style:none;border-top:1px solid var(--rule);padding-top:20px;}
+  .phase-items li{font-size:13px;color:var(--ink);padding:5px 0 5px 14px;position:relative;line-height:1.55;}
+  .phase-items li::before{content:'/';position:absolute;left:0;color:var(--accent);}
+  .phase-items li span{color:var(--ink-dim);font-size:12px;}
+  .not-for{background:#EBE8E1;padding:24px 36px;border-left:2px solid var(--rule);font-size:14px;color:var(--ink-mid);font-style:italic;line-height:1.6;}
+
+  /* ROI */
+  .roi-section{background:var(--dark);}
+  .roi-inner{max-width:1140px;margin:0 auto;padding:96px 64px;}
+  .roi-header{margin-bottom:56px;}
+  .roi-header .section-label{color:var(--dark-label);margin-bottom:16px;}
+  .roi-header h2{font-family:'DM Serif Display',serif;font-size:clamp(36px,4.5vw,60px);line-height:1.07;letter-spacing:-.025em;color:var(--cream);}
+  .roi-body{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+  .roi-left p{font-size:16px;color:var(--dark-text);font-weight:300;line-height:1.85;margin-bottom:20px;}
+  .roi-punch{font-size:17px;color:var(--cream);font-weight:400;line-height:1.7;padding-top:24px;border-top:1px solid var(--dark-rule);margin-top:8px;}
+  .roi-numbers{display:flex;border:1px solid var(--dark-rule);margin-bottom:2px;}
+  .roi-num-item{flex:1;padding:32px 28px;display:flex;flex-direction:column;gap:10px;}
+  .roi-num-divider{width:1px;background:var(--dark-rule);}
+  .roi-figure{font-family:'DM Serif Display',serif;font-size:44px;color:var(--cream);letter-spacing:-.03em;line-height:1;}
+  .roi-desc{font-size:12px;color:var(--dark-muted);font-weight:300;line-height:1.5;}
+  .roi-per-opp{border:1px solid var(--dark-rule);border-top:none;padding:24px 28px;margin-bottom:24px;display:flex;align-items:baseline;gap:12px;}
+  .roi-per-opp-figure{font-family:'DM Serif Display',serif;font-size:32px;color:var(--cream);letter-spacing:-.02em;}
+  .roi-per-opp-desc{font-size:13px;color:var(--dark-text);font-weight:300;line-height:1.5;}
+  .roi-mdf-note{border-left:2px solid var(--accent);padding:20px 20px 20px 24px;}
+  .roi-mdf-label{display:block;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;font-weight:500;}
+  .roi-mdf-note p{font-size:13px;color:var(--dark-text);font-weight:300;line-height:1.75;}
+
+  /* CTA */
+  .cta{background:var(--cream);padding:120px 64px;text-align:center;border-top:1px solid var(--rule);}
+  .cta-inner{max-width:660px;margin:0 auto;}
+  .cta h2{font-family:'DM Serif Display',serif;font-size:clamp(34px,4.5vw,58px);line-height:1.08;letter-spacing:-.02em;margin-bottom:22px;}
+  .cta h2 em{font-style:italic;color:var(--ink-mid);}
+  .cta-trigger{font-size:16px;color:var(--ink-mid);font-weight:300;line-height:1.75;margin-bottom:40px;max-width:480px;margin-left:auto;margin-right:auto;}
+  .cta-trigger strong{color:var(--ink);font-weight:500;}
+  .cta-note{margin-top:24px;font-size:12px;color:var(--ink-dim);font-style:italic;}
+  .cta-email{margin-top:18px;font-size:13px;color:var(--ink-mid);font-weight:300;}
+  .cta-email a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule);padding-bottom:1px;transition:border-color .2s;}
+  .cta-email a:hover{border-color:var(--ink);}
+  
+  /* Inline confirmation after form submit */
+  .cta-form-wrap{max-width:520px;margin:0 auto;}
+  .cta-confirm{padding:48px 32px;text-align:center;border:1px solid var(--rule);background:var(--cream);}
+  .cta-confirm-eyebrow{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:16px;font-weight:500;}
+  .cta-confirm-line{font-family:'DM Serif Display',serif;font-size:24px;color:var(--ink);font-weight:400;line-height:1.35;letter-spacing:-.01em;}
+  
+  /* Primary book-a-call button - prominent, full-width on desktop */
+  .cta-book-primary{display:flex;align-items:center;justify-content:space-between;max-width:520px;margin:0 auto 0;padding:22px 28px;background:var(--ink);color:var(--cream);text-decoration:none;border:1px solid var(--ink);transition:background .2s,transform .15s;}
+  .cta-book-primary:hover{background:var(--accent);border-color:var(--accent);}
+  .cta-book-label{font-size:15px;font-weight:500;letter-spacing:.02em;}
+  .cta-book-arrow{font-size:18px;font-weight:300;transition:transform .2s;}
+  .cta-book-primary:hover .cta-book-arrow{transform:translateX(4px);}
+  
+  /* Divider with "or" */
+  .cta-divider{display:flex;align-items:center;justify-content:center;margin:32px auto 24px;max-width:520px;color:var(--ink-dim);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;}
+  .cta-divider::before,.cta-divider::after{content:'';flex:1;height:1px;background:var(--rule);}
+  .cta-divider span{padding:0 16px;}
+  
+  @media(max-width:600px){
+    .cta-book-primary{padding:18px 22px;}
+  }
+  
+  /* CONTACT FORM */
+  .cta-form{max-width:520px;margin:32px auto 24px;text-align:left;display:flex;flex-direction:column;gap:20px;}
+  .cta-form .form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .cta-form label{display:flex;flex-direction:column;gap:6px;}
+  .cta-form .form-label{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-dim);font-weight:500;}
+  .cta-form input,.cta-form textarea{font-family:'DM Sans',sans-serif;font-size:14px;color:var(--ink);background:transparent;border:none;border-bottom:1px solid var(--rule);padding:8px 0;outline:none;font-weight:400;width:100%;transition:border-color .2s;}
+  .cta-form input:focus,.cta-form textarea:focus{border-bottom-color:var(--accent);}
+  .cta-form textarea{resize:vertical;min-height:90px;font-family:'DM Sans',sans-serif;line-height:1.5;}
+  .cta-form button.btn-primary{margin-top:8px;align-self:flex-start;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;}
+  .hidden-field{position:absolute;left:-9999px;visibility:hidden;}
+  @media(max-width:600px){
+    .cta-form .form-row{grid-template-columns:1fr;}
+  }
+
+  /* FOOTER */
+  footer{padding:28px 64px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;background:var(--bg);}
+  footer p{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);}
+  .footer-links{display:flex;gap:28px;list-style:none;}
+  .footer-links a{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);text-decoration:none;transition:color .2s;}
+  .footer-links a:hover{color:var(--ink);}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+  .hero-left{animation:fadeUp .75s ease both;}
+  .hero-right{animation:fadeUp .75s .1s ease both;}
+
+  @media(max-width:900px){
+    nav{padding:20px 24px;}.nav-links{display:none;}
+    .hero,.positioning,.wid-header,.aws-inner,.deal-death-inner,.why-me,.thesis-cols,.roi-body,.guarantee-inner{grid-template-columns:1fr;gap:40px;}
+    .hero,.thesis,.what-i-do,.positioning,.engagement,.why-me,.cta,.human-motion{padding-left:24px;padding-right:24px;}
+    .hero{padding-top:60px;padding-bottom:64px;}
+    .cap-grid,.eng-grid{grid-template-columns:1fr;}
+    .focus-grid{grid-template-columns:1fr;}
+    .diff-strip,.aws-inner,.deal-death-inner,.roi-inner,.guarantee-inner{padding-left:24px;padding-right:24px;}
+    footer{padding:24px;flex-direction:column;gap:16px;text-align:center;}
+    .hr{margin:0 24px;}
+    .roi-numbers{flex-direction:column;}.roi-num-divider{width:100%;height:1px;}
+    .guarantee-right{border-left:none;padding-left:0;border-top:2px solid var(--accent);padding-top:28px;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-brand">Forj</a>
+  <ul class="nav-links">
+    <li><a href="#what">Approach</a></li>
+    <li><a href="#aws">AWS</a></li>
+    <li><a href="#jacob">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <h1>Qualified AWS pipeline starts before the first meeting.</h1>
+  </div>
+  <div class="hero-right">
+    <p>In most AWS partner pipelines, the offering isn't yet shaped around the outcome the customer is buying. The deal stalls. AWS can't engage. The partner gets positioned on features when the conversation should be about value.</p>
+    <p>Forj works upstream, sharpening the offering, refining the audience, articulating the value in the buyer's language. Then comes the qualified pipeline that proves the work landed.</p>
+    <p class="hero-note">Senior, human work. The kind that doesn't automate.</p>
+    <a href="#contact" class="btn-primary">Discuss an engagement</a>
+  </div>
+</div>
+
+<!-- COMMERCIAL SIGNAL STRIP -->
+<div class="signal-strip">
+  <div class="signal-inner">
+    <span class="signal-eyebrow">The bar to clear</span>
+    <p class="signal-line"><strong>One closed deal</strong> covers the engagement.</p>
+  </div>
+</div>
+
+
+<!-- WHERE IT GOES WRONG -->
+<div class="deal-death">
+  <div class="deal-death-inner">
+    <div class="deal-death-left">
+      <p class="section-label">What pipeline reveals</p>
+      <h2>Most pipeline issues are <em>readiness issues in disguise.</em></h2>
+    </div>
+    <ul class="death-list">
+      <li class="death-item">
+        <span class="death-num">01</span>
+        <div class="death-item-content">
+          <strong>Pipeline leans on existing customers.</strong>
+          <p>Most opportunities come from accounts already won. Comfortable, but it caps growth at the rate the existing base expands. Net-new acquisition is underbuilt, not because outbound is bad, but because the offering hasn't been packaged for someone who doesn't already trust you.</p>
+        </div>
+      </li>
+      <li class="death-item">
+        <span class="death-num">02</span>
+        <div class="death-item-content">
+          <strong>The opportunity exists, but isn't shaped for AWS.</strong>
+          <p>A real deal sits in the CRM with no business challenge, technical scope, or timeline that AWS can engage around. Co-sell stays one-sided, and the partner closes alone.</p>
+        </div>
+      </li>
+      <li class="death-item">
+        <span class="death-num">03</span>
+        <div class="death-item-content">
+          <strong>The problem is real, but the offering isn't shaped to it.</strong>
+          <p>The customer has a challenge worth solving. Without a defined first deliverable, a quantified outcome, and a clear path forward, the conversation drifts. A packaging gap, not a sales gap.</p>
+        </div>
+      </li>
+      <li class="death-item">
+        <span class="death-num">04</span>
+        <div class="death-item-content">
+          <strong>The value isn't articulated for the buyer.</strong>
+          <p>The offering gets described in infrastructure terms, services, instances, regions, when the buyer needs to hear it in business terms: cost per customer, time to market, availability. The translation hasn't happened yet.</p>
+        </div>
+      </li>
+      <li class="death-item">
+        <span class="death-num">05</span>
+        <div class="death-item-content">
+          <strong>Outreach reaches the wrong level, or the right level at the wrong time.</strong>
+          <p>The conversation is friendly, but the person on the other end can't sponsor a project right now. Either the audience hasn't been defined sharply, or the trigger that makes the right persona engage hasn't been identified.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- WHAT WE DO -->
+<div class="what-i-do" id="what">
+  <div class="wid-header">
+    <h2>From commercial readiness to qualified pipeline.</h2>
+    <p>With the readiness work in place, pipeline production begins. <strong>Opportunities arrive with context already built. The first meeting can be about the customer, not catching up.</strong></p>
+  </div>
+  <div class="cap-grid">
+    <div class="cap-cell">
+      <p class="cap-num">01 / Targeting</p>
+      <h3>Accounts selected for what's actually moving</h3>
+      <p class="cap-outcome">New accounts in the pipeline, not the ones already there.</p>
+    </div>
+    <div class="cap-cell">
+      <p class="cap-num">02 / Outreach</p>
+      <h3>Direct, personal, specific to each account</h3>
+      <p class="cap-outcome">Meetings with people who have the problem, the authority, and a reason to act.</p>
+    </div>
+    <div class="cap-cell">
+      <p class="cap-num">03 / Handover</p>
+      <h3>Opportunities ready for your team to progress</h3>
+      <p class="cap-outcome">Each conversation starts with context, not from cold.</p>
+    </div>
+  </div>
+</div>
+
+<div class="hr"></div>
+
+<!-- AWS -->
+<div class="aws-section" id="aws">
+  <div class="aws-inner">
+    <div class="aws-left">
+      <p class="section-label">The AWS reality</p>
+      <h2>Co-sell is not a tool.<br><em>It's a human motion.</em></h2>
+    </div>
+    <div class="aws-right">
+      <p>Co-sell was designed as structured collaboration. For most partners, it behaves like late-stage validation. <strong>AWS engages when an opportunity is already commercially clear, technically credible, and easy to justify internally.</strong> That's the bar the programme was built around. Most opportunities never reach it.</p>
+      <ul class="aws-chain">
+        <li>
+          <span class="chain-role">PDM</span>
+          <span class="chain-desc">Your strategic counterpart inside AWS. Champions <em>partners whose work moves the partnership forward.</em></span>
+        </li>
+        <li>
+          <span class="chain-role">AM</span>
+          <span class="chain-desc">Owns the customer relationship at AWS. Engages partners <em>whose deals build real momentum in the account.</em></span>
+        </li>
+        <li>
+          <span class="chain-role">SA</span>
+          <span class="chain-desc">Brings the technical depth that <em>makes the customer confident.</em> Engages where there's a solution worth designing for.</span>
+        </li>
+        <li>
+          <span class="chain-role">ACE</span>
+          <span class="chain-desc">The registration that surfaces the AWS account team and <em>kicks off the working relationship.</em></span>
+        </li>
+      </ul>
+      <div class="aws-power-block">
+        <span class="aws-power-rule"></span>
+        <p class="aws-power-truth">Co-sell happens when the opportunity is shaped for AWS internally and delivers a real outcome for the customer.</p>
+        <p class="aws-power-kicker">Outbound creates access. Shape creates engagement.</p>
+      </div>
+      <p class="aws-mutual">This is how the AWS partner ecosystem was designed to work. Partners shape opportunities AWS can stand behind. Account teams hit their numbers. Customers get the outcomes the programmes were built for.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIAL -->
+<div class="testimonial">
+  <div class="testimonial-inner">
+    <span class="testimonial-rule"></span>
+    <p class="testimonial-label">In partner words</p>
+    <blockquote class="testimonial-quote">
+      When we started, we knew AWS was strategic but we didn't really know what being a partner meant in practice, which programs mattered, which conversations to have, what to say yes and no to. Forj came in and gave us a way of operating, not just advice. The fact that we hit Advanced Tier in under a year is the visible part. The bigger shift is that we now know how to grow inside the AWS ecosystem on our own terms.
+    </blockquote>
+    <p class="testimonial-attribution">
+      <span class="testimonial-name">Anders Bastos</span>
+      <span class="testimonial-role">Co-founder, Novalo</span>
+    </p>
+  </div>
+</div>
+
+<!-- WHY ME / JACOB -->
+<div class="why-me" id="jacob">
+  <div class="why-me-left">
+    <p class="section-label">About</p>
+    <h2>A Nordic practice with deep AWS partner experience.</h2>
+    <p>Forj is built on ten years of enterprise technology sales and AWS partner GTM across the Nordics: sharpening partner offerings and building co-sell pipeline across the region.</p>
+    <p>A small number of partner engagements at a time, so the work is carried by the same people from start to finish.</p>
+    <a href="https://www.linkedin.com/in/jacob-ahmid" class="jacob-linkedin" target="_blank" rel="noopener">More on LinkedIn</a>
+  </div>
+</div>
+
+<div class="hr"></div>
+
+<!-- GUARANTEE -->
+<div class="guarantee">
+  <div class="guarantee-inner">
+    <div class="guarantee-left">
+      <p class="section-label">The commitment</p>
+      <h2>Five qualified opportunities a month.</h2>
+      <div class="qualified-def">
+        <strong>What qualified means</strong>
+        <span class="qualified-layer">Commercially: a named decision-maker with budget authority, a confirmed customer outcome the engagement will deliver, and an agreed first meeting.</span>
+        <span class="qualified-layer">For AWS: a problem scope tied to a specific AWS service or motion, with enough structure for the opportunity to enter ACE cleanly, support the AM's quarter, and give your PDM something to build on.</span>
+      </div>
+    </div>
+    <div class="guarantee-right">
+      <p>If after three months the work hasn't reached that standard, <strong>the engagement continues until it has.</strong></p>
+      <p>Same scope. Same terms. No additional cost.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ROI -->
+<div class="roi-section">
+  <div class="roi-inner">
+    <div class="roi-header">
+      <p class="section-label">The investment</p>
+      <h2>One closed deal covers it.</h2>
+    </div>
+    <div class="roi-body">
+      <div class="roi-left">
+        <p>The engagement runs $30,000 over three months and covers both phases: the commercial readiness work and the pipeline that proves it. AWS Market Development Funds were built to fund exactly this kind of work, and are structured to cover up to 50%, bringing the net cost to around $15,000.</p>
+        <p>For that, fifteen qualified opportunities, each with a named decision-maker, defined scope, confirmed first meeting, and full documentation.</p>
+        <p class="roi-punch">At typical AWS partner deal sizes, a single closed opportunity covers the entire engagement.</p>
+      </div>
+      <div class="roi-right">
+        <div class="roi-numbers">
+          <div class="roi-num-item">
+            <span class="roi-figure">15</span>
+            <span class="roi-desc">Qualified opportunities<br>over 3 months</span>
+          </div>
+          <div class="roi-num-divider"></div>
+          <div class="roi-num-item">
+            <span class="roi-figure">$15k</span>
+            <span class="roi-desc">Net cost after<br>AWS MDF (50%)</span>
+          </div>
+          <div class="roi-num-divider"></div>
+          <div class="roi-num-item">
+            <span class="roi-figure">1</span>
+            <span class="roi-desc">Closed deal<br>covers the work</span>
+          </div>
+        </div>
+        <div class="roi-per-opp">
+          <span class="roi-per-opp-figure">$1,000</span>
+          <span class="roi-per-opp-desc">per qualified opportunity,<br>fully created and documented</span>
+        </div>
+        <div class="roi-mdf-note">
+          <span class="roi-mdf-label">MDF: Market Development Funds</span>
+          <p>AWS partner funding spans three phases: Market, Sell, Grow. MDF sits in the Market phase, funding partner go-to-market work, including the kind of pipeline creation this engagement is built around. Opportunities the work surfaces often unlock Sell-phase MAP funding downstream. Used well, the phases compound across the partner lifecycle.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta" id="contact">
+  <div class="cta-inner">
+    <h2>Start with a conversation.</h2>
+    <p class="cta-trigger">Pick a time, or send a short message. A reply within a working day.</p>
+    
+    <a href="https://cal.com/forj.se/30min" target="_blank" rel="noopener" class="cta-book-primary">
+      <span class="cta-book-label">Book a 30-minute call</span>
+      <span class="cta-book-arrow">→</span>
+    </a>
+    
+    <div class="cta-divider"><span>or send a message</span></div>
+    
+    <div class="cta-form-wrap" id="cta-form-wrap">
+      <form class="cta-form" id="forj-form" name="forj-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="forj-contact">
+        <p class="hidden-field"><label>Don't fill this out: <input name="bot-field"></label></p>
+        <div class="form-row">
+          <label>
+            <span class="form-label">Name</span>
+            <input type="text" name="name" required>
+          </label>
+          <label>
+            <span class="form-label">Company</span>
+            <input type="text" name="company" required>
+          </label>
+        </div>
+        <label>
+          <span class="form-label">Email</span>
+          <input type="email" name="email" required>
+        </label>
+        <label>
+          <span class="form-label">A few words on what you're working on</span>
+          <textarea name="message" rows="4" required></textarea>
+        </label>
+        <button type="submit" class="btn-primary">Send</button>
+      </form>
+      
+      <div class="cta-confirm" id="cta-confirm" hidden>
+        <p class="cta-confirm-eyebrow">Message received</p>
+        <p class="cta-confirm-line">A reply is coming, often within a working day.</p>
+      </div>
+    </div>
+    
+    <p class="cta-email">or write directly to <a href="mailto:jacob@forj.se">jacob@forj.se</a></p>
+    <p class="cta-note">Working with a small number of Nordic AWS partners at a time.</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Forj</p>
+  <ul class="footer-links">
+    <li><a href="https://www.linkedin.com/in/jacob-ahmid" target="_blank" rel="noopener">LinkedIn</a></li>
+    <li><a href="https://www.linkedin.com/company/forjcompany/" target="_blank" rel="noopener">Forj</a></li>
+    <li><a href="/privacy.html">Privacy</a></li>
+  </ul>
+</footer>
+
+<script>
+  (function() {
+    var form = document.getElementById('forj-form');
+    var confirm = document.getElementById('cta-confirm');
+    if (!form || !confirm) return;
+    
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      var btn = form.querySelector('button[type="submit"]');
+      var originalText = btn.textContent;
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+      
+      var formData = new FormData(form);
+      var data = new URLSearchParams();
+      formData.forEach(function(value, key) { data.append(key, value); });
+      
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: data.toString()
+      })
+      .then(function(response) {
+        if (response.ok) {
+          form.hidden = true;
+          confirm.hidden = false;
+          confirm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          throw new Error('Submit failed');
+        }
+      })
+      .catch(function() {
+        btn.textContent = originalText;
+        btn.disabled = false;
+        alert('Something went wrong. Please email jacob@forj.se directly.');
+      });
+    });
+  })();
+</script>
+</body>
+</html>
