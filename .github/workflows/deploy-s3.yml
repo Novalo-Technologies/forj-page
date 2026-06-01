@@ -28,6 +28,18 @@ jobs:
           test -n "$S3_BUCKET_NAME" || (echo "Missing S3_BUCKET_NAME (set as GitHub Variable or Secret)" && exit 1)
           test -n "$AWS_ROLE_ARN" || (echo "Missing AWS_ROLE_ARN (set as GitHub Variable or Secret)" && exit 1)
 
+          # Normalize common input mistakes (e.g. s3://bucket-name/).
+          NORMALIZED_BUCKET="${S3_BUCKET_NAME#s3://}"
+          NORMALIZED_BUCKET="${NORMALIZED_BUCKET%%/*}"
+          NORMALIZED_BUCKET="${NORMALIZED_BUCKET%/}"
+          NORMALIZED_BUCKET="${NORMALIZED_BUCKET//$'\r'/}"
+          NORMALIZED_BUCKET="${NORMALIZED_BUCKET//$'\n'/}"
+
+          test -n "$NORMALIZED_BUCKET" || (echo "S3_BUCKET_NAME resolved to an empty value after normalization" && exit 1)
+          [[ "$NORMALIZED_BUCKET" =~ ^[a-z0-9][a-z0-9.-]{1,61}[a-z0-9]$ ]] || (echo "Invalid S3_BUCKET_NAME format. Use only the raw bucket name (3-63 chars, lowercase letters, numbers, dots, hyphens)." && exit 1)
+
+          echo "S3_BUCKET_NAME=$NORMALIZED_BUCKET" >> "$GITHUB_ENV"
+
       - name: Configure AWS credentials (OIDC)
         uses: aws-actions/configure-aws-credentials@v4
         with:
