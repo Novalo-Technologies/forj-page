@@ -119,6 +119,30 @@
     .signal-suffix{white-space:normal;line-height:1.6;}
   }
 
+  /* ALLOY — the product, on a dark band (echoes Alloy's own UI) */
+  .alloy{background:var(--dark);border-top:1px solid var(--dark-rule);border-bottom:1px solid var(--dark-rule);}
+  .alloy-inner{max-width:1140px;margin:0 auto;padding:92px 64px;}
+  .alloy-head{max-width:780px;margin-bottom:54px;}
+  .alloy .section-label{color:var(--dark-label);margin-bottom:18px;}
+  .alloy h2{font-family:'DM Serif Display',serif;font-size:clamp(32px,4.2vw,54px);line-height:1.08;letter-spacing:-.022em;color:var(--cream);}
+  .alloy h2 em{font-style:italic;color:var(--accent);}
+  .alloy-lead{font-size:17px;color:var(--dark-text);font-weight:300;line-height:1.72;margin-top:24px;}
+  .alloy-lead strong{color:var(--cream);font-weight:500;}
+  .alloy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:44px;margin-bottom:54px;}
+  .alloy-cell{border-top:1px solid var(--dark-rule);padding-top:18px;}
+  .alloy-num{font-family:'Bricolage Grotesque',sans-serif;font-size:11px;letter-spacing:.16em;color:var(--accent);display:block;margin-bottom:13px;}
+  .alloy-cell h3{font-size:17px;color:var(--cream);font-weight:500;margin-bottom:8px;line-height:1.3;}
+  .alloy-cell p{font-size:14px;color:var(--dark-muted);font-weight:300;line-height:1.65;}
+  .alloy-cta{display:flex;align-items:center;gap:26px;flex-wrap:wrap;}
+  .alloy-cta .btn-primary{background:var(--accent);color:var(--cream);margin-right:0;}
+  .alloy-cta .btn-primary:hover{background:var(--cream);color:var(--dark);}
+  .alloy-cta .btn-ghost{color:var(--dark-text);border-color:var(--dark-rule);}
+  .alloy-cta .btn-ghost:hover{color:var(--cream);border-color:var(--cream);}
+  @media(max-width:780px){
+    .alloy-inner{padding:60px 24px;}
+    .alloy-grid{grid-template-columns:1fr;gap:30px;}
+  }
+
   /* POSITIONING */
   .positioning{display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start;padding:80px 64px;max-width:1140px;margin:0 auto;}
   .section-label{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:20px;}
@@ -354,6 +378,7 @@
   <a href="#" class="nav-brand">Forj</a>
   <ul class="nav-links">
     <li><a href="#what">Approach</a></li>
+    <li><a href="#alloy">Alloy</a></li>
     <li><a href="#aws">AWS</a></li>
     <li><a href="#jacob">About</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -455,6 +480,39 @@
 </div>
 
 <div class="hr"></div>
+
+<!-- ALLOY -->
+<section class="alloy" id="alloy">
+  <div class="alloy-inner">
+    <div class="alloy-head">
+      <p class="section-label">The platform behind the work</p>
+      <h2>Alloy — where pipeline is <em>forged</em>.</h2>
+      <p class="alloy-lead">The senior work stays human — that's the point. <strong>Alloy is the engine underneath it.</strong> It finds the AWS-fit accounts, reads their cloud and AI signals, names the play, and drafts the openers and the AWS paperwork — so the hours go where they earn their keep: the conversation, the judgment, the relationship.</p>
+    </div>
+    <div class="alloy-grid">
+      <div class="alloy-cell">
+        <span class="alloy-num">01</span>
+        <h3>Finds &amp; sizes the fit</h3>
+        <p>Net-new AWS accounts, ranked on size, cloud and AI-maturity signals — not the list you already have.</p>
+      </div>
+      <div class="alloy-cell">
+        <span class="alloy-num">02</span>
+        <h3>Names the play</h3>
+        <p>Migrate, modernise, GenAI or Marketplace — the right AWS motion per account, with the funding that fits it.</p>
+      </div>
+      <div class="alloy-cell">
+        <span class="alloy-num">03</span>
+        <h3>Arms the rep</h3>
+        <p>Smith, the co-pilot, drafts the opener, the decision-makers and the AWS paperwork. You review and send — nothing leaves without you.</p>
+      </div>
+    </div>
+    <div class="alloy-cta">
+      <a href="#contact" class="btn-primary">Request access</a>
+      <!-- App link points at the current GitHub Pages build; swap to the AWS URL once Alloy is live there. -->
+      <a href="https://jacobahmid-stack.github.io/alloy/" class="btn-ghost" target="_blank" rel="noopener">Open Alloy →</a>
+    </div>
+  </div>
+</section>
 
 <!-- AWS -->
 <div class="aws-section" id="aws">
