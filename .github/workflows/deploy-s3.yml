@@ -29,14 +29,21 @@ jobs:
           test -n "$AWS_ROLE_ARN" || (echo "Missing AWS_ROLE_ARN (set as GitHub Variable or Secret)" && exit 1)
 
           # Normalize common input mistakes (e.g. s3://bucket-name/).
-          NORMALIZED_BUCKET="${S3_BUCKET_NAME#s3://}"
+          NORMALIZED_BUCKET="$(printf '%s' "$S3_BUCKET_NAME" | tr -d '\r\n' | xargs)"
+          NORMALIZED_BUCKET="${NORMALIZED_BUCKET#s3://}"
           NORMALIZED_BUCKET="${NORMALIZED_BUCKET%%/*}"
           NORMALIZED_BUCKET="${NORMALIZED_BUCKET%/}"
-          NORMALIZED_BUCKET="${NORMALIZED_BUCKET//$'\r'/}"
-          NORMALIZED_BUCKET="${NORMALIZED_BUCKET//$'\n'/}"
+          NORMALIZED_BUCKET="${NORMALIZED_BUCKET%\"}"
+          NORMALIZED_BUCKET="${NORMALIZED_BUCKET#\"}"
+          NORMALIZED_BUCKET="${NORMALIZED_BUCKET%\'}"
+          NORMALIZED_BUCKET="${NORMALIZED_BUCKET#\'}"
 
           test -n "$NORMALIZED_BUCKET" || (echo "S3_BUCKET_NAME resolved to an empty value after normalization" && exit 1)
-          [[ "$NORMALIZED_BUCKET" =~ ^[a-z0-9][a-z0-9.-]{1,61}[a-z0-9]$ ]] || (echo "Invalid S3_BUCKET_NAME format. Use only the raw bucket name (3-63 chars, lowercase letters, numbers, dots, hyphens)." && exit 1)
+          if ! [[ "$NORMALIZED_BUCKET" =~ ^[a-z0-9][a-z0-9.-]{1,61}[a-z0-9]$ ]]; then
+            echo "Invalid S3_BUCKET_NAME format. Use only the raw bucket name (3-63 chars, lowercase letters, numbers, dots, hyphens)."
+            echo "Diagnostics: length=${#NORMALIZED_BUCKET}, has_uppercase=$([[ "$NORMALIZED_BUCKET" =~ [A-Z] ]] && echo yes || echo no), has_underscore=$([[ "$NORMALIZED_BUCKET" == *"_"* ]] && echo yes || echo no), has_space=$([[ "$NORMALIZED_BUCKET" == *" "* ]] && echo yes || echo no)"
+            exit 1
+          fi
 
           echo "S3_BUCKET_NAME=$NORMALIZED_BUCKET" >> "$GITHUB_ENV"
 
