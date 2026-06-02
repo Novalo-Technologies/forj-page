@@ -1,0 +1,13 @@
+version: 1
+frontend:
+  phases:
+    build:
+      commands:
+        - echo "Static site — no build step"
+  artifacts:
+    # Serve the repo root as-is (index.html, privacy.html, robots.txt, sitemap.xml).
+    baseDirectory: /
+    files:
+      - '**/*'
+  cache:
+    paths: []
