@@ -379,6 +379,7 @@
   <ul class="nav-links">
     <li><a href="#what">Approach</a></li>
     <li><a href="#alloy">Alloy</a></li>
+    <li><a href="#integrations">Integrations</a></li>
     <li><a href="#aws">AWS</a></li>
     <li><a href="#jacob">About</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -512,6 +513,43 @@
       <a href="https://alloy.forj.se/?demo" class="btn-ghost" target="_blank" rel="noopener">Open Alloy →</a>
     </div>
   </div>
+</section>
+
+<!-- WHERE SMITH WORKS -->
+<section class="alloy" id="integrations" style="border-top:none;">
+  <div class="alloy-inner">
+    <div class="alloy-head">
+      <p class="section-label">Smith works where you work</p>
+      <h2 style="font-size:clamp(28px,3.2vw,42px)">Ask Smith without leaving the room.</h2>
+      <p class="alloy-lead">Smith is Alloy's AWS co-worker, and he meets your team where it already works. Ask a question and the answer comes back in the same place, grounded in your pipeline, your CRM and live AWS docs.</p>
+    </div>
+    <div class="chan-grid">
+      <div class="chan-cell">
+        <div class="chan-top"><span class="chan-name">Slack</span><span class="chan-badge live">Live</span></div>
+        <p>Mention <strong>@smith</strong> in any channel. He answers in the thread: the play, the funding, the next move. No tab-switch, no copy-paste.</p>
+      </div>
+      <div class="chan-cell">
+        <div class="chan-top"><span class="chan-name">Microsoft Teams</span><span class="chan-badge soon">Soon</span></div>
+        <p>The same Smith, in Teams. Ask where your Microsoft-first customers and colleagues already work. Coming next.</p>
+      </div>
+      <div class="chan-cell">
+        <div class="chan-top"><span class="chan-name">Your CRM</span><span class="chan-badge live">Synced</span></div>
+        <p>Pipeline syncs both ways with <strong>HubSpot</strong> today, and every major CRM runs on the same engine. It lands where you sell, not in another silo.</p>
+      </div>
+    </div>
+  </div>
+  <style>
+    #integrations .chan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--dark-rule);border:1px solid var(--dark-rule);}
+    #integrations .chan-cell{background:var(--dark);padding:34px 32px;}
+    #integrations .chan-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:16px;}
+    #integrations .chan-name{font-family:'DM Serif Display',serif;font-size:21px;color:var(--cream);}
+    #integrations .chan-cell p{font-size:14px;color:var(--dark-text);line-height:1.8;font-weight:300;}
+    #integrations .chan-cell p strong{color:var(--cream);font-weight:500;}
+    #integrations .chan-badge{font-family:'Bricolage Grotesque',sans-serif;font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:20px;white-space:nowrap;}
+    #integrations .chan-badge.live{background:var(--accent);color:#FDFAF5;}
+    #integrations .chan-badge.soon{border:1px solid var(--dark-muted);color:var(--dark-muted);}
+    @media(max-width:780px){#integrations .alloy-inner{padding:60px 24px;}#integrations .chan-grid{grid-template-columns:1fr;}}
+  </style>
 </section>
 
 <!-- AWS -->
